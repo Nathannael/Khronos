@@ -6,4 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(email: "admin@example.org", password: "123123123")
+# User.create!(email: "admin@example.org", password: "123123123")
+
+10.times do
+  Artist.create(name: Faker::Music.band).tap do |artist|
+    artist.albums.create(name: Faker::Music.album, release_date: Faker::Date.backward(1.year))
+  end
+end

@@ -35,7 +35,7 @@ gem "slim-rails"
 # Authentication
 gem "devise"
 # Fake data generation
-gem "faker"
+gem 'faker', git: 'https://github.com/stympy/faker'
 # Fake CPF generation
 # gem 'cpf_faker'
 # Better add some CPF validations
@@ -43,7 +43,7 @@ gem "faker"
 # Authorization
 # gem 'cancancan', '~> 2.0'
 
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 group :development, :test do
@@ -77,13 +77,15 @@ group :development do
   gem "binding_of_caller"
   # Nested Forms
   gem "cocoon"
+
+  # Annotate schema information on model
+  gem 'annotate'
 end
 
 group :test do
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   # Better formating for RSpec
   gem 'fuubar'
-  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
