@@ -3,6 +3,8 @@ class CreateAlbums < ActiveRecord::Migration[5.1]
     create_table :albums do |t|
       t.string :name
       t.date :release_date
+      t.text :tracklist
+      t.string :cover
       t.references :artist, foreign_key: true
 
       t.timestamps

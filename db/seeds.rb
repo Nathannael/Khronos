@@ -8,8 +8,8 @@
 
 # User.create!(email: "admin@example.org", password: "123123123")
 
-10.times do
+20.times do
   Artist.create(name: Faker::Music.band).tap do |artist|
-    artist.albums.create(name: Faker::Music.album, release_date: Faker::Date.backward(1.year))
+    artist.albums.create(name: Faker::Music.album, release_date: Faker::Date.forward(2.weeks), cover: Faker::Placeholdit.image("400x400", 'jpg', :random))
   end
 end
