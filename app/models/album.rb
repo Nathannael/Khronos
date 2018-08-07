@@ -14,4 +14,6 @@ class Album < ApplicationRecord
   validates_presence_of :name, :release_date
 
   belongs_to :artist
+
+  scope :upcoming, -> { where('release_date > ?', Date.today) }
 end

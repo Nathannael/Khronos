@@ -1,4 +1,4 @@
-= form_for @album do |f|
+= form_for @album, html: { class: "ui form" } do |f|
   - if @album.errors.any?
     #error_explanation
       h2 = "#{pluralize(@album.errors.count, "error")} prohibited this album from being saved:"
@@ -15,4 +15,5 @@
   .field
     = f.label :artist
     = f.text_field :artist
-  .actions = f.submit
+  .actions
+    = f.submit class: "ui button"

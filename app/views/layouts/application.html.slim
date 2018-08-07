@@ -8,16 +8,17 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     - if current_user
-      nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
-        a.navbar-brand href="#" Khronos
-        button.navbar-toggler.navbar-toggler-right aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
-          span.navbar-toggler-icon
-        #navbar.collapse.navbar-collapse
-          ul.navbar-nav.mr-auto
-            li.nav-item
-              = link_to "home", root_url, class: "nav-link"
-          = link_to "logout", destroy_user_session_path, :method => :delete, :data => {:confirm => 'Are you sure?'}, class: "nav-link"
-    .container role="main"
+      .ui.stackable.container.inverted.menu
+        .header.item
+          ' Khronos
+        .item
+          = link_to "home", root_url, class: "nav-link"
+        .item
+          = link_to "Add Album", new_album_path, class: "nav-link"
+        .right.menu
+          .item
+            = link_to "logout", destroy_user_session_path, :method => :delete, :data => {:confirm => 'Are you sure?'}, class: "nav-link"
+    .ui.container
       p.notice = notice
       p.alert = alert
       = yield

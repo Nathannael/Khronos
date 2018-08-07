@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+    @albums_by_date = Album.upcoming.order(:release_date).includes(:artist).group_by(&:release_date)
   end
 
   # GET /albums/1
